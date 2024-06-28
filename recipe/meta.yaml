@@ -1,5 +1,5 @@
 {% set name = "zarpaint" %}
-{% set version = "0.3.1" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/zarpaint-{{ version }}.tar.gz
-  sha256: dda1352084afad3ea6f0bbfa25c5cec0e8077ccdd34022a12a32bd661af0d41c
+  sha256: f7bf37251575c248eb49136552c5b8fd299e8267aacc7ab3b24841dad8d24063
 
 build:
   entry_points:
@@ -19,19 +19,19 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python >=3.9
     - setuptools-scm
   run:
     - magicgui
-    - napari >=0.4.18
+    - napari >=0.4.19
     - numpy
-    - python >=3.7
+    - python >=3.9
     - pyyaml
     - qtpy
-    - scikit-image
+    - scikit-image >=0.21
     - scipy
     - toolz
-    - zarr
+    - zarr >=2.11,<3
 
 test:
   imports:
