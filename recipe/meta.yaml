@@ -1,3 +1,4 @@
+{% set python_min = "3.11" %}
 {% set name = "zarpaint" %}
 {% set version = "0.4.0" %}
 
@@ -6,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/zarpaint-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/zarpaint-{{ version }}.tar.gz
   sha256: f7bf37251575c248eb49136552c5b8fd299e8267aacc7ab3b24841dad8d24063
 
 build:
@@ -14,18 +15,19 @@ build:
     - zarpaint = zarpaint._main:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.9
+    - python {{ python_min }}
+    - setuptools
     - setuptools-scm
   run:
     - magicgui
     - napari >=0.4.19
     - numpy
-    - python >=3.9
+    - python >={{ python_min }}
     - pyyaml
     - qtpy
     - scikit-image >=0.21
@@ -42,6 +44,7 @@ test:
   requires:
     - pip
     - pyqt
+    - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/zarpaint
