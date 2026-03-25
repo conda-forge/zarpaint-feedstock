@@ -33,7 +33,7 @@ requirements:
     - scikit-image >=0.21
     - scipy
     - toolz
-    - zarr >=2.11,<3
+    - zarr >=2.11
 
 test:
   imports:
